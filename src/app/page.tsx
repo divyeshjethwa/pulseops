@@ -122,9 +122,11 @@ async function MonitorsDashboard() {
           ))}
         </section>
 
-        <div className="mb-8">
-          <SystemHealth />
-        </div>
+        {process.env.NODE_ENV === "development" && (
+          <div className="mb-8">
+            <SystemHealth />
+          </div>
+        )}
 
         {process.env.NODE_ENV === "development" && (
           <div className="mb-8 space-y-6">

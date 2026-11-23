@@ -11,6 +11,7 @@ import QueueActivity from "@/components/QueueActivity";
 import FailedJobs from "@/components/FailedJobs";
 import MonitoringActivity from "@/components/MonitoringActivity";
 import ResponseTimeThreshold from "@/components/ResponseTimeThreshold";
+import CloudMonitoringHealth from "@/components/CloudMonitoringHealth";
 
 interface Monitor extends QueryResultRow {
   id: string;
@@ -134,6 +135,12 @@ async function MonitorsDashboard() {
             <QueueActivity />
             <FailedJobs />
           </div>
+        )}
+
+        {process.env.NODE_ENV === "production" && (
+          <Suspense fallback={<p>Loading cloud monitoring...</p>}>
+            <CloudMonitoringHealth />
+          </Suspense>
         )}
 
         <div className="mb-8">

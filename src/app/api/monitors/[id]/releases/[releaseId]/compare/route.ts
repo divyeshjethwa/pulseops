@@ -92,12 +92,6 @@ export async function GET(
   _request: Request,
   { params }: Context
 ) {
-  if (process.env.NODE_ENV !== "development") {
-    return Response.json(
-      { error: "Not found" },
-      { status: 404 }
-    );
-  }
 
   const { id, releaseId } = await params;
 

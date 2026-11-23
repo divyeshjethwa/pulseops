@@ -163,9 +163,7 @@ async function MonitorDetails({ params }: Props) {
           <ResponseTimeThreshold monitorId={id} />
         )}
 
-        {process.env.NODE_ENV === "development" && (
-          <ReleaseHistory monitorId={id} />
-        )}
+        <ReleaseHistory monitorId={id} />
 
 
         <section className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
